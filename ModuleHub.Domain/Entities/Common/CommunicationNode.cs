@@ -53,7 +53,7 @@ namespace ModuleHub.Domain.Entities.Common
         public CommunicationNode (Guid id, CommunicationClient communicationClient) : base(id)
         {
             CommunicationClient = communicationClient;
-            ComunnicationClientId = communicationClient.Id;    
+            ComunnicationClientId = communicationClient.id;    
         }
 
 

@@ -33,7 +33,7 @@ namespace ModuleHub.DataAccess.Contexts
         /// <summary>
         /// Tabla para los <see cref="DataSource"/>
         /// </summary>
-        public DbSet<DataSource> DataSources { get; set; }
+        public DbSet<DataSource> ModbusNodes { get; set; }
 
 
         /// <summary>

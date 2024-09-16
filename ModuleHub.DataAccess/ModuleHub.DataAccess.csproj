@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ModuleHub.Contracts\ModuleHub.Contracts.csproj" />
     <ProjectReference Include="..\ModuleHub.Domain\ModuleHub.Domain.csproj" />
   </ItemGroup>
 

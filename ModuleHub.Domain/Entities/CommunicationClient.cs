@@ -16,7 +16,7 @@ namespace ModuleHub.Domain.Entities
 {
 
     /// <summary>
-    /// Modela una <see cref="CommunicationClient"/> 
+    /// Modela un <see cref="CommunicationClient"/> 
     /// </summary>
     public class CommunicationClient : Entity
     {
@@ -90,7 +90,7 @@ namespace ModuleHub.Domain.Entities
             ConnectionPort = connectionPort;
             CommunicationClientType = CommunicationClientType.MODBUS;
             DataSource = dataSource;
-            DataSourceId = dataSource.Id;
+            DataSourceId = dataSource.id;
 
         }
 

@@ -30,8 +30,8 @@ namespace ModuleHub.DataAccess.FluentConfigurations.Common
             /// <summary>
             /// Define el ID como un Requisito indispensable 
             /// </summary>
-            builder.HasKey(x => x.Id);
-            builder.Property(x => x.Id).IsRequired();
+            builder.HasKey(x => x.id);
+            builder.Property(x => x.id).IsRequired();
         }
 
     }

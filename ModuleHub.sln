@@ -3,11 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModuleHub.ConsoleApp", "ModuleHub.ConsoleApp\ModuleHub.ConsoleApp.csproj", "{5E009152-3955-40ED-B1C9-4134C2068B48}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModuleHub.ConsoleApp", "ModuleHub.ConsoleApp\ModuleHub.ConsoleApp.csproj", "{5E009152-3955-40ED-B1C9-4134C2068B48}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModuleHub.Domain", "ModuleHub.Domain\ModuleHub.Domain.csproj", "{28BAA994-4FAB-4A6D-B1EA-ABBFBA92BA18}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModuleHub.Domain", "ModuleHub.Domain\ModuleHub.Domain.csproj", "{28BAA994-4FAB-4A6D-B1EA-ABBFBA92BA18}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModuleHub.DataAccess", "ModuleHub.DataAccess\ModuleHub.DataAccess.csproj", "{A16F9868-5C4D-4040-A24B-746CE1B4136D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModuleHub.DataAccess", "ModuleHub.DataAccess\ModuleHub.DataAccess.csproj", "{A16F9868-5C4D-4040-A24B-746CE1B4136D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModuleHub.Contracts", "ModuleHub.Contracts\ModuleHub.Contracts.csproj", "{DC6B9495-282F-442E-A1D8-1BDCFB5B58A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModuleHub.DataAccess.Tests", "ModuleHub.DataAccess.Tests\ModuleHub.DataAccess.Tests.csproj", "{2C3C9289-16DA-4B90-89F8-1EC16E529AB2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +31,14 @@ Global
 		{A16F9868-5C4D-4040-A24B-746CE1B4136D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A16F9868-5C4D-4040-A24B-746CE1B4136D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A16F9868-5C4D-4040-A24B-746CE1B4136D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC6B9495-282F-442E-A1D8-1BDCFB5B58A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC6B9495-282F-442E-A1D8-1BDCFB5B58A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC6B9495-282F-442E-A1D8-1BDCFB5B58A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC6B9495-282F-442E-A1D8-1BDCFB5B58A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C3C9289-16DA-4B90-89F8-1EC16E529AB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C3C9289-16DA-4B90-89F8-1EC16E529AB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C3C9289-16DA-4B90-89F8-1EC16E529AB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C3C9289-16DA-4B90-89F8-1EC16E529AB2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

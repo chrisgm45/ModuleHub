@@ -27,7 +27,7 @@ namespace ModuleHub.Domain.Entities.Common
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         /// Define el Identificador para cada <see cref="Entity"/>
         /// </summary>
-        public Guid Id { get; set; }
+        public Guid id { get; set; }
 
         #endregion
 
@@ -47,7 +47,7 @@ namespace ModuleHub.Domain.Entities.Common
         /// <param name="id">Identificador en Base Datos</param>
         public Entity(Guid id)
         {
-            Id = id;
+            this.id = id;
         }
 
         #endregion

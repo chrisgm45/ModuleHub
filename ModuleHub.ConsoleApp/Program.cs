@@ -116,12 +116,12 @@ namespace ModuleHub.ConsoleApp
             //  Obteniendo  ID desde Base Datos
             DataSource? dataSourceOfClient1 = applicationContext
                 .Set<DataSource>()
-                .FirstOrDefault(d => d.Id == communicationClient1.DataSourceId);
+                .FirstOrDefault(d => d.id == communicationClient1.DataSourceId);
 
             //  Obteniendo  ID desde Base Datos
             DataSource? dataSourceOfClient2 = applicationContext
                 .Set<DataSource>()
-                .FirstOrDefault(d => d.Id == communicationClient2.DataSourceId);
+                .FirstOrDefault(d => d.id == communicationClient2.DataSourceId);
 
 
 
@@ -129,12 +129,12 @@ namespace ModuleHub.ConsoleApp
             //  Obteniendo  ID desde Base Datos
             CommunicationClient? communicationClientOfModbusNodes1 = applicationContext
                 .Set<CommunicationClient>()
-                .FirstOrDefault(c => c.Id == modbusNode1.ComunnicationClientId);
+                .FirstOrDefault(c => c.id == modbusNode1.ComunnicationClientId);
 
             //  Obteniendo  ID desde Base Datos
             CommunicationClient? communicationClientOfModbusNodes2 = applicationContext
                 .Set<CommunicationClient>()
-                .FirstOrDefault(c => c.Id == modbusNode2.ComunnicationClientId);
+                .FirstOrDefault(c => c.id == modbusNode2.ComunnicationClientId);
 
 
 
@@ -143,12 +143,12 @@ namespace ModuleHub.ConsoleApp
             //  Obteniendo  ID desde Base Datos
             CommunicationClient? communicationClientOfOPCNodes1 = applicationContext
                 .Set<CommunicationClient>()
-                .FirstOrDefault(c => c.Id == oPCNode1.ComunnicationClientId);
+                .FirstOrDefault(c => c.id == oPCNode1.ComunnicationClientId);
 
             //  Obteniendo  ID desde Base Datos
             CommunicationClient? communicationClientOfOPCNodes2 = applicationContext
                 .Set<CommunicationClient>()
-                .FirstOrDefault(c => c.Id == oPCNode2.ComunnicationClientId);
+                .FirstOrDefault(c => c.id == oPCNode2.ComunnicationClientId);
 
 
 
@@ -251,7 +251,7 @@ namespace ModuleHub.ConsoleApp
             applicationContext.SaveChanges();
 
             OPCNode? deletedOPCNode = applicationContext.Set<OPCNode>()
-                .FirstOrDefault(o => o.Id == oPCNode1.Id);
+                .FirstOrDefault(o => o.id == oPCNode1.id);
             if (deletedOPCNode is null)
                 Console.WriteLine("Nodo OPC eliminado con Exito");
 
@@ -265,7 +265,7 @@ namespace ModuleHub.ConsoleApp
             applicationContext.SaveChanges();
 
             ModbusNode? deletedModbusNode = applicationContext.Set<ModbusNode>()
-                .FirstOrDefault(m => m.Id == modbusNode1.Id);
+                .FirstOrDefault(m => m.id == modbusNode1.id);
             if (deletedModbusNode is null)
                 Console.WriteLine("Nodo MODBUS eliminado con Exito");
 
@@ -280,7 +280,7 @@ namespace ModuleHub.ConsoleApp
             applicationContext.SaveChanges();
 
             CommunicationClient? deletedCommunicationClient = applicationContext.Set<CommunicationClient>()
-                .FirstOrDefault(c => c.Id == communicationClient1.Id);
+                .FirstOrDefault(c => c.id == communicationClient1.id);
             if (deletedCommunicationClient is null)
                 Console.WriteLine("Cliente de Comunicacion eliminado con Exito");
 
@@ -292,11 +292,11 @@ namespace ModuleHub.ConsoleApp
 
 
             //  Eliminando una Fuente de Datos del Soporte de Datos
-            applicationContext.DataSources.Remove(dataSource1);
+            applicationContext.ModbusNodes.Remove(dataSource1);
             applicationContext.SaveChanges();
 
             DataSource? deletedDataSource = applicationContext.Set<DataSource>()
-                .FirstOrDefault(d => d.Id == dataSource1.Id);
+                .FirstOrDefault(d => d.id == dataSource1.id);
             if (deletedDataSource is null)
                 Console.WriteLine("Fuente de Datos eliminada con Exito");
             Console.WriteLine("");
