@@ -32,7 +32,7 @@ namespace ModuleHub.Contracts.Interfaces
         /// </summary>
         /// <param name="id">Identificador del <see cref="CommunicationClient"/></param>
         /// <returns></returns>
-        CommunicationClient? GetCommunicationClientById (Guid id);
+        CommunicationClient? GetCommunicationClientById(Guid id);
 
 
 

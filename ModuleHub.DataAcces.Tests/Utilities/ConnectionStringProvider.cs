@@ -12,7 +12,7 @@ namespace ModuleHub.DataAccess.Tests.Utilities
 {
 
     /// <summary>
-    /// Proveedor de Cadena de Conexion con Base de Datos
+    /// Proveedor de Cadena de Conexion para Base de Datos
     /// </summary>
     public static class ConnectionStringProvider
     {

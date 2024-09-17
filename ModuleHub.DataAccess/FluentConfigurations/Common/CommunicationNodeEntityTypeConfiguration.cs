@@ -18,7 +18,7 @@ namespace ModuleHub.DataAccess.FluentConfigurations
     /// <summary>
     /// Modela la Configuracion de la Tabla en BD de <see cref="CommunicationNode"/>
     /// </summary>
-    public class CommunicationNodeEntityTypeConfigurationBase : EntityTypeConfigurationBase<CommunicationNode>
+    public class CommunicationNodeEntityTypeConfiguration : EntityTypeConfigurationBase<CommunicationNode>
 
     {
         /// <summary>
@@ -32,13 +32,9 @@ namespace ModuleHub.DataAccess.FluentConfigurations
             builder.ToTable("CommunicationNodes");
             base.Configure(builder);
 
-            /// <summary>
-            /// Relacion de un <see cref="CommunicationClient"/> con muchos <see cref="CommunicationNode"/> 
-            /// </summary>
-            builder.HasOne(x => x.CommunicationClient).WithMany(x => x.CommunicationNodes).HasForeignKey(x => x.ComunnicationClientId);
+            builder.HasOne(x => x.CommunicationClient).WithMany(x => x.CommunicationNodes).HasForeignKey(x => x.CommunicationClientId);
 
         }
 
     }
 }
-

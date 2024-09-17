@@ -20,14 +20,14 @@ namespace ModuleHub.Domain.Entities.Common
     {
         #region   PROPERTIES
 
-        
+
         /// Define a "Id" como llave Primaria en Base Datos
         [Key]
         // El "Id" es generado por la Base de Datos
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         /// Define el Identificador para cada <see cref="Entity"/>
         /// </summary>
-        public Guid id { get; set; }
+        public Guid Id { get; set; }
 
         #endregion
 
@@ -38,7 +38,7 @@ namespace ModuleHub.Domain.Entities.Common
         /// <summary>
         /// Constructor por Defecto para EntityFramework
         /// </summary>
-        protected Entity () { }
+        protected Entity() { }
 
 
         /// <summary>
@@ -47,9 +47,10 @@ namespace ModuleHub.Domain.Entities.Common
         /// <param name="id">Identificador en Base Datos</param>
         public Entity(Guid id)
         {
-            this.id = id;
+            Id = id;
         }
 
         #endregion
     }
 }
+

@@ -1,4 +1,4 @@
-﻿#region    USINGS
+﻿#region   USINGS
 
 using Microsoft.EntityFrameworkCore;
 using ModuleHub.Contracts;
@@ -11,30 +11,28 @@ using System.Threading.Tasks;
 
 #endregion
 
-
 namespace ModuleHub.DataAccess
 {
+
+
     /// <summary>
-    /// Implementacion de la IUnitOfWork
+    /// Implementacion de la interfaz de Unidad de Trabajo
     /// </summary>
     public class UnitOfWork : IUnitOfWork
     {
 
         /// <summary>
-        /// Recibe el Contexto de la Base de Datos
+        ///Almacena para poder utilizarlo para salvar los cambios en Base de Datos
         /// </summary>
-        private readonly ApplicationContext _applicationContext ;
-
+        private readonly ApplicationContext _applicationContext;
 
         /// <summary>
-        /// Analiza la Posibilidad de Conexion con la Base de Datos
+        /// Comprueba si existe la Base de Datos
         /// </summary>
-        public UnitOfWork (ApplicationContext applicationContext)
+        /// <param name="applicationContext"> Contexto de la Base de Datos </param>
+        public UnitOfWork(ApplicationContext applicationContext)
         {
-
             _applicationContext = applicationContext;
-
-            // Comprobando Existencia de Base de Datos
             if (!applicationContext.Database.CanConnect())
                 applicationContext.Database.Migrate();
         }
@@ -42,13 +40,11 @@ namespace ModuleHub.DataAccess
 
 
         /// <summary>
-        /// Guarda los cambios realizados en el contexto de la Base de Datos
+        /// Guarda los cambios realizados en Base de Datos
         /// </summary>
         public void SaveChanges()
         {
             _applicationContext.SaveChanges();
         }
-
-
     }
 }

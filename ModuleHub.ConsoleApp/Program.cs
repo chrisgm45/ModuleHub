@@ -1,13 +1,12 @@
 ﻿#region    USINGS
 
-using ModuleHub.DataAccess.Contexts;
-using ModuleHub.Domain.Entities.Common;
-using ModuleHub.Domain.Utilities.Types;
-using ModuleHub.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics;
 using System;
+using ModuleHub.DataAccess.Contexts;
+using ModuleHub.Domain.Entities;
+using ModuleHub.Domain.Utilities.Types;
 
 #endregion
 
@@ -31,7 +30,7 @@ namespace ModuleHub.ConsoleApp
             #region    ************   CRUDs   ***************
 
 
-                 #region    CREATE
+            #region    CREATE
 
             Console.WriteLine("********************    CREATE    ***************************");
             Console.WriteLine("");
@@ -46,23 +45,23 @@ namespace ModuleHub.ConsoleApp
 
             // Creando Clientes de Comunicacion
             CommunicationClient communicationClient1 = new CommunicationClient
-                (Guid.NewGuid(),  "68.96.88.4","5", dataSource1);
+                (Guid.NewGuid(), "68.96.88.4", dataSource1);
             CommunicationClient communicationClient2 = new CommunicationClient
-                (Guid.NewGuid(), "88.100.48.2", "3", dataSource2);
+                (Guid.NewGuid(), "88.100.48.2", dataSource2);
 
 
             // Creando Nodos Modbus (Hardwares)
             ModbusNode modbusNode1 = new ModbusNode
-                ("ModBus_1", 1, 1);
+                (Guid.NewGuid(), "ModBus_1", 1, communicationClient1);
             ModbusNode modbusNode2 = new ModbusNode
-                ("ModBus_2", 3, 2);
+                (Guid.NewGuid(), "ModBus_2", 3, communicationClient2);
 
 
             // Creando Nodos OPC (Softwares)
             OPCNode oPCNode1 = new OPCNode
-                ("68.96.88.4");
+                (Guid.NewGuid(), "68.96.88.4", communicationClient1);
             OPCNode oPCNode2 = new OPCNode
-                ("88.100.48.2");
+                (Guid.NewGuid(), "88.100.48.2", communicationClient2);
 
 
 
@@ -97,7 +96,7 @@ namespace ModuleHub.ConsoleApp
 
             //Añadiendo Nodos OPC a BD
             applicationContext.Set<OPCNode>().Add(oPCNode1);
-            applicationContext.Set<OPCNode>().Add(oPCNode1);
+            applicationContext.Set<OPCNode>().Add(oPCNode2);
             // Guardar Modificaciones Realizadas
             applicationContext.SaveChanges();
 
@@ -105,23 +104,23 @@ namespace ModuleHub.ConsoleApp
             #endregion
 
 
-                  #region     READ
+            #region     READ
 
             Console.WriteLine("");
             Console.WriteLine("********************    GET  ID    ***************************");
             Console.WriteLine("");
-            Console.WriteLine("       Leido con Exito");
+            Console.WriteLine("");
 
 
             //  Obteniendo  ID desde Base Datos
             DataSource? dataSourceOfClient1 = applicationContext
                 .Set<DataSource>()
-                .FirstOrDefault(d => d.id == communicationClient1.DataSourceId);
+                .FirstOrDefault(d => d.Id == communicationClient1.DataSourceId);
 
             //  Obteniendo  ID desde Base Datos
             DataSource? dataSourceOfClient2 = applicationContext
                 .Set<DataSource>()
-                .FirstOrDefault(d => d.id == communicationClient2.DataSourceId);
+                .FirstOrDefault(d => d.Id == communicationClient2.DataSourceId);
 
 
 
@@ -129,12 +128,12 @@ namespace ModuleHub.ConsoleApp
             //  Obteniendo  ID desde Base Datos
             CommunicationClient? communicationClientOfModbusNodes1 = applicationContext
                 .Set<CommunicationClient>()
-                .FirstOrDefault(c => c.id == modbusNode1.ComunnicationClientId);
+                .FirstOrDefault(c => c.Id == modbusNode1.CommunicationClientId);
 
             //  Obteniendo  ID desde Base Datos
             CommunicationClient? communicationClientOfModbusNodes2 = applicationContext
                 .Set<CommunicationClient>()
-                .FirstOrDefault(c => c.id == modbusNode2.ComunnicationClientId);
+                .FirstOrDefault(c => c.Id == modbusNode2.CommunicationClientId);
 
 
 
@@ -143,19 +142,24 @@ namespace ModuleHub.ConsoleApp
             //  Obteniendo  ID desde Base Datos
             CommunicationClient? communicationClientOfOPCNodes1 = applicationContext
                 .Set<CommunicationClient>()
-                .FirstOrDefault(c => c.id == oPCNode1.ComunnicationClientId);
+                .FirstOrDefault(c => c.Id == oPCNode1.CommunicationClientId);
 
             //  Obteniendo  ID desde Base Datos
             CommunicationClient? communicationClientOfOPCNodes2 = applicationContext
                 .Set<CommunicationClient>()
-                .FirstOrDefault(c => c.id == oPCNode2.ComunnicationClientId);
+                .FirstOrDefault(c => c.Id == oPCNode2.CommunicationClientId);
 
+
+            Console.WriteLine("Identificadores obtenidos con  EXITO");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
 
 
             #endregion
 
 
-                 #region      UPDATE
+            #region      UPDATE
 
 
             Console.WriteLine("");
@@ -204,6 +208,7 @@ namespace ModuleHub.ConsoleApp
 
             foreach (var loadedModbusNode in modbusNodes)
             {
+                loadedModbusNode.RecordToRead = 2;
                 loadedModbusNode.RecordSource = 4;
                 applicationContext.Set<ModbusNode>().Update(loadedModbusNode);
             }
@@ -233,10 +238,10 @@ namespace ModuleHub.ConsoleApp
             Console.WriteLine("Nueva direccion a consumir por Nodo OPC ");
 
 
-            #endregion  
+            #endregion
 
 
-                 #region        DELETE
+            #region        DELETE
 
             Console.WriteLine("");
             Console.WriteLine("********************    DELETE    ***************************");
@@ -251,7 +256,7 @@ namespace ModuleHub.ConsoleApp
             applicationContext.SaveChanges();
 
             OPCNode? deletedOPCNode = applicationContext.Set<OPCNode>()
-                .FirstOrDefault(o => o.id == oPCNode1.id);
+                .FirstOrDefault(o => o.Id == oPCNode1.Id);
             if (deletedOPCNode is null)
                 Console.WriteLine("Nodo OPC eliminado con Exito");
 
@@ -265,7 +270,7 @@ namespace ModuleHub.ConsoleApp
             applicationContext.SaveChanges();
 
             ModbusNode? deletedModbusNode = applicationContext.Set<ModbusNode>()
-                .FirstOrDefault(m => m.id == modbusNode1.id);
+                .FirstOrDefault(m => m.Id == modbusNode1.Id);
             if (deletedModbusNode is null)
                 Console.WriteLine("Nodo MODBUS eliminado con Exito");
 
@@ -280,7 +285,7 @@ namespace ModuleHub.ConsoleApp
             applicationContext.SaveChanges();
 
             CommunicationClient? deletedCommunicationClient = applicationContext.Set<CommunicationClient>()
-                .FirstOrDefault(c => c.id == communicationClient1.id);
+                .FirstOrDefault(c => c.Id == communicationClient1.Id);
             if (deletedCommunicationClient is null)
                 Console.WriteLine("Cliente de Comunicacion eliminado con Exito");
 
@@ -292,11 +297,11 @@ namespace ModuleHub.ConsoleApp
 
 
             //  Eliminando una Fuente de Datos del Soporte de Datos
-            applicationContext.ModbusNodes.Remove(dataSource1);
+            applicationContext.DataSources.Remove(dataSource1);
             applicationContext.SaveChanges();
 
             DataSource? deletedDataSource = applicationContext.Set<DataSource>()
-                .FirstOrDefault(d => d.id == dataSource1.id);
+                .FirstOrDefault(d => d.Id == dataSource1.Id);
             if (deletedDataSource is null)
                 Console.WriteLine("Fuente de Datos eliminada con Exito");
             Console.WriteLine("");
@@ -340,5 +345,5 @@ namespace ModuleHub.ConsoleApp
             #endregion
 
         }
-    } 
+    }
 }

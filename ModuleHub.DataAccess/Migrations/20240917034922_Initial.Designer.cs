@@ -11,7 +11,7 @@ using ModuleHub.DataAccess.Contexts;
 namespace ModuleHub.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20240915145633_Initial")]
+    [Migration("20240917034922_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,7 +25,7 @@ namespace ModuleHub.DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("ComunnicationClientId")
+                    b.Property<Guid>("CommunicationClientId")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");

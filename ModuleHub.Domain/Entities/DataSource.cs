@@ -1,7 +1,5 @@
 ﻿#region  USINGS
 
-using ModuleHub.Domain.Entities.Common;
-using ModuleHub.Domain.Utilities.Types;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -9,6 +7,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ModuleHub.Domain.Entities.Common;
+using ModuleHub.Domain.Entities;
+using ModuleHub.Domain.Utilities.Types;
 
 #endregion
 
@@ -59,11 +60,14 @@ namespace ModuleHub.Domain.Entities
         /// </summary>
         public DataSourceType DataSourceType { get; set; }
 
+
+
+
         /// <summary>
         /// Cliente de Comunicacion de la <see cref="DataSource"/>  
         /// </summary>
         [NotMapped]
-        public CommunicationClient CommunicationClient { get; set; }
+        public virtual CommunicationClient CommunicationClient { get; set; }
 
         #endregion
 
@@ -94,6 +98,7 @@ namespace ModuleHub.Domain.Entities
             Description = string.Empty;
             Location = string.Empty;
             DataSourceType = DataSourceType.PLC;
+
 
 
         }

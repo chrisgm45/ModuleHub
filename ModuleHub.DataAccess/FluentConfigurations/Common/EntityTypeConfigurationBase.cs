@@ -18,21 +18,22 @@ namespace ModuleHub.DataAccess.FluentConfigurations.Common
     /// Configurada para que hereden de ellas las clases derevidas
     /// </summary>
     public abstract class EntityTypeConfigurationBase<T>
-        : IEntityTypeConfiguration<T> 
+        : IEntityTypeConfiguration<T>
        where T : Entity
     {
-         
+
         /// <summary>
         /// Permite usar funciones para configurar la tabla 
         /// </summary>
-        public virtual void Configure (EntityTypeBuilder<T> builder)
+        public virtual void Configure(EntityTypeBuilder<T> builder)
         {
             /// <summary>
             /// Define el ID como un Requisito indispensable 
             /// </summary>
-            builder.HasKey(x => x.id);
-            builder.Property(x => x.id).IsRequired();
+            builder.HasKey(x => x.Id);
+            builder.Property(x => x.Id).IsRequired();
         }
 
     }
 }
+

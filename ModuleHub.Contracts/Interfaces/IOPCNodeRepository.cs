@@ -1,11 +1,12 @@
 ﻿#region    USINGS
 
-using ModuleHub.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ModuleHub.Contracts.Interfaces;
+using ModuleHub.Domain.Entities;
 
 #endregion
 
@@ -24,7 +25,7 @@ namespace ModuleHub.Contracts.Interfaces
         /// Añade un <see cref="OPCNode"/> a Base de Datos
         /// </summary>
         /// <param name="oPCNode"> Nodo OPC </param>
-        void AddOPCNode(OPCNode oPCNode) ;
+        void AddOPCNode(OPCNode oPCNode);
 
 
 
@@ -49,7 +50,7 @@ namespace ModuleHub.Contracts.Interfaces
         /// Actualiza un <see cref="OPCNode"/> en Base de Datos
         /// </summary>
         /// <param name="oPCNode">Nodo OPC</param>
-        void UpdateOPCNode(OPCNode oPCNode );
+        void UpdateOPCNode(OPCNode oPCNode);
 
 
 
@@ -61,4 +62,3 @@ namespace ModuleHub.Contracts.Interfaces
 
     }
 }
-

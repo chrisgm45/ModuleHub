@@ -1,7 +1,5 @@
 ﻿#region USINGS
 
-using ModuleHub.Domain.Entities.Common;
-using ModuleHub.Domain.Utilities.Types;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -9,6 +7,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ModuleHub.Domain.Entities.Common;
+using ModuleHub.Domain.Entities;
+using ModuleHub.Domain.Utilities.Types;
 
 #endregion
 
@@ -33,7 +34,6 @@ namespace ModuleHub.Domain.Entities
         /// <summary>
         /// Puerto de Conexion del <see cref="CommunicationClient"/> 
         /// </summary>
-        [Required]
         public string ConnectionPort { get; set; }
 
 
@@ -43,22 +43,23 @@ namespace ModuleHub.Domain.Entities
         CommunicationClientType CommunicationClientType { get; set; }
 
 
-        /// <summary>
-        /// Fuente de datos del <see cref="CommunicationClient"/> 
-        /// </summary>
-        [NotMapped]
-        [Required]
-        public DataSource DataSource { get; set; }
-
 
         /// <summary>
-        /// Identificador de la Fuente de Datos del <see cref="CommunicationClient"/> 
+        /// Identificador de la Fuente de Datos a la que pertenece el <see cref="CommunicationClient"/> 
         /// </summary>
         public Guid DataSourceId { get; set; }
 
 
+
         /// <summary>
-        /// Lista de Nodos de Comunicacion del <see cref="CommunicationClient"/>
+        /// (Relacion 1 a 1) Fuente de datos del <see cref="CommunicationClient"/> 
+        /// </summary>
+        [NotMapped]
+        public virtual DataSource DataSource { get; set; }
+
+
+        /// <summary>
+        /// (Relacion 1 a muchos) Lista de Nodos de Comunicacion del <see cref="CommunicationClient"/>
         /// </summary>
         [NotMapped]
         public List<CommunicationNode> CommunicationNodes { get; set; }
@@ -73,29 +74,29 @@ namespace ModuleHub.Domain.Entities
         /// <summary>
         /// Requerido por EntityFramework
         /// </summary>
-        protected CommunicationClient() { } 
-    
+        protected CommunicationClient() { }
+
 
         /// <summary>
         /// Inicializa un <see cref="CommunicationClient"/>
         /// </summary>
         /// <param name="id">Identificador del <see cref="CommunicationClient"/></param>
         /// <param name="addresIp">Direccion Ip</param>
-        /// <param name="connectionPort">Puerto de Conexion </param>
         /// <param name="dataSource">Fuente de Datos relacionada</param>
-            public CommunicationClient (Guid id, string addresIp, string connectionPort, DataSource dataSource ) : base ( id)
+        public CommunicationClient(Guid id, string addresIp, DataSource dataSource) : base(id)
         {
 
             AddressIp = addresIp;
-            ConnectionPort = connectionPort;
+            ConnectionPort = string.Empty;
             CommunicationClientType = CommunicationClientType.MODBUS;
             DataSource = dataSource;
-            DataSourceId = dataSource.id;
+            DataSourceId = dataSource.Id;
+
 
         }
 
 
         #endregion
-    
+
     }
 }

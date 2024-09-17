@@ -1,12 +1,13 @@
 ﻿#region   USINGS
 
-using ModuleHub.Domain.Entities.Common;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ModuleHub.Domain.Entities.Common;
+using ModuleHub.Domain.Entities;
 
 #endregion
 
@@ -27,6 +28,7 @@ namespace ModuleHub.Domain.Entities
         public string AddressLabel { get; set; }
 
 
+
         #endregion
 
 
@@ -44,11 +46,13 @@ namespace ModuleHub.Domain.Entities
         /// Inicializa un <see cref="OPCNode"/>
         /// </summary>
         /// <param name="addressLabel"> Direccion en el servidor que va a consumir el <see cref="OPCNode"/></param>
-        public OPCNode(string addressLabel)
+        /// <param name="communicationClient"> Cliente de Comunicacion al que le pertenece el <see cref="OPCNode"/></param>
+        public OPCNode(Guid id, string addressLabel, CommunicationClient communicationClient) : base(id, communicationClient)
         {
 
             AddressLabel = addressLabel;
-
+            CommunicationClient = communicationClient;
+            CommunicationClientId = communicationClient.Id;
         }
 
 
@@ -59,3 +63,4 @@ namespace ModuleHub.Domain.Entities
 
     }
 }
+

@@ -24,7 +24,7 @@ namespace ModuleHub.DataAccess.Repositories.Common
         /// </summary>
         protected ApplicationContext _applicationContext;
 
-        protected RepositoryBase (ApplicationContext applicationContext)
+        protected RepositoryBase(ApplicationContext applicationContext)
         {
             _applicationContext = applicationContext;
         }

@@ -1,6 +1,5 @@
 ﻿#region   USINGS
 
-using ModuleHub.Domain.Entities.Common;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +7,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ModuleHub.Domain.Entities.Common;
+using ModuleHub.Domain.Entities;
 
 #endregion
 
@@ -19,6 +20,7 @@ namespace ModuleHub.Domain.Entities
     /// </summary>
     public class ModbusNode : CommunicationNode
     {
+
         #region    PROPERTIES
 
 
@@ -59,13 +61,15 @@ namespace ModuleHub.Domain.Entities
         /// </summary>
         /// <param name="name"> Nombre del <see cref="ModbusNode"/> </param>
         /// <param name="recordSource"> Registro del cual obtiene la info el <see cref="ModbusNode"/>/></param>
-        /// <param name="recordToRead"> Cantidad de Registros a leer por el <see cref="ModbusNode"/></param>
-        public ModbusNode(string name, int recordSource, int recordToRead)
+        /// <param name="communicationClient"> Cliente al que le pertenece el <see cref="ModbusNode"/>/></param>
+        public ModbusNode(Guid id, string name, int recordSource, CommunicationClient communicationClient) :
+            base(id, communicationClient)
         {
             Name = name;
             RecordSource = recordSource;
-            RecordToRead = recordToRead;
-
+            RecordToRead = 0;
+            CommunicationClient = communicationClient;
+            CommunicationClientId = communicationClient.Id;
         }
 
 

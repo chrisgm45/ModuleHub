@@ -32,7 +32,7 @@ namespace ModuleHub.Contracts.Interfaces
         /// </summary>
         /// <param name="id">Identificador de la <see cref="DataSource"/></param>
         /// <returns></returns>
-        DataSource? GetDataSourceById (Guid id);
+        DataSource? GetDataSourceById(Guid id);
 
 
 

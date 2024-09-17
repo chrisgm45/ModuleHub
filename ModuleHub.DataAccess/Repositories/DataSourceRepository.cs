@@ -1,14 +1,14 @@
 ﻿#region   USINGS
 
-using ModuleHub.Contracts.Interfaces;
-using ModuleHub.DataAccess.Contexts;
-using ModuleHub.Domain.Entities;
-using ModuleHub.Domain.Entities.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ModuleHub.Contracts.Interfaces;
+using ModuleHub.DataAccess.Contexts;
+using ModuleHub.DataAccess.Repositories.Common;
+using ModuleHub.Domain.Entities;
 
 #endregion
 
@@ -40,7 +40,7 @@ namespace ModuleHub.DataAccess.Repositories.Common
         /// <param name="dataSource"> Fuente de Datos </param>
         public void AddDataSource(DataSource dataSource)
         {
-            _applicationContext.ModbusNodes.Add(dataSource);
+            _applicationContext.DataSources.Add(dataSource);
         }
 
 
@@ -51,7 +51,7 @@ namespace ModuleHub.DataAccess.Repositories.Common
         /// <param name="dataSource"> Fuente de Datos </param>
         public void DeleteDataSource(DataSource dataSource)
         {
-            _applicationContext.ModbusNodes.Remove(dataSource);
+            _applicationContext.DataSources.Remove(dataSource);
         }
 
 
@@ -62,7 +62,7 @@ namespace ModuleHub.DataAccess.Repositories.Common
         /// <returns></returns>
         public IEnumerable<DataSource> GetAllDataSources()
         {
-            return _applicationContext.ModbusNodes.ToList();
+            return _applicationContext.DataSources.ToList();
         }
 
 
@@ -74,7 +74,7 @@ namespace ModuleHub.DataAccess.Repositories.Common
         /// <returns></returns>
         public DataSource? GetDataSourceById(Guid id)
         {
-            return _applicationContext.ModbusNodes.FirstOrDefault(x => x.id == id);
+            return _applicationContext.DataSources.FirstOrDefault(x => x.Id == id);
         }
 
 
@@ -85,7 +85,7 @@ namespace ModuleHub.DataAccess.Repositories.Common
         /// <param name="dataSource"> Fuente de Datos </param>
         public void UpdateDataSource(DataSource dataSource)
         {
-            _applicationContext.ModbusNodes.Update(dataSource);
+            _applicationContext.DataSources.Update(dataSource);
         }
 
 

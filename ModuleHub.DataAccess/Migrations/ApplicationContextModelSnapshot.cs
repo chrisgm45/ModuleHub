@@ -23,7 +23,7 @@ namespace ModuleHub.DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("ComunnicationClientId")
+                    b.Property<Guid>("CommunicationClientId")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");

@@ -1,14 +1,14 @@
 ﻿#region   USINGS
 
-using ModuleHub.Contracts.Interfaces;
-using ModuleHub.DataAccess.Contexts;
-using ModuleHub.Domain.Entities;
-using ModuleHub.Domain.Entities.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ModuleHub.Contracts.Interfaces;
+using ModuleHub.DataAccess.Contexts;
+using ModuleHub.DataAccess.Repositories.Common;
+using ModuleHub.Domain.Entities;
 
 #endregion
 
@@ -72,9 +72,9 @@ namespace ModuleHub.DataAccess.Repositories.Common
         /// </summary>
         /// <param name="id"> Identificador del <see cref="CommunicationClient"/></param>
         /// <returns></returns>
-        public CommunicationClient? GetCommunicationClientById(Guid id) 
+        public CommunicationClient? GetCommunicationClientById(Guid id)
         {
-            return _applicationContext.CommunicationClients.FirstOrDefault(x => x.id == id);
+            return _applicationContext.CommunicationClients.FirstOrDefault(x => x.Id == id);
         }
 
 

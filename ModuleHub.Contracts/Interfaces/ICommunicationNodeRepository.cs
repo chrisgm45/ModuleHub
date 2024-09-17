@@ -49,7 +49,7 @@ namespace ModuleHub.Contracts.Interfaces
         /// Actualiza un <see cref="CommunicationNode"/> en Base de Datos
         /// </summary>
         /// <param name="communicationNode"> Nodo de Comunicacion</param>
-        void  UpdateCommunicationNode (CommunicationNode communicationNode);
+        void UpdateCommunicationNode(CommunicationNode communicationNode);
 
 
 

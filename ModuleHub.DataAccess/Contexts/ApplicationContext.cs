@@ -4,15 +4,15 @@ using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.EntityFrameworkCore.Sqlite.Infrastructure.Internal;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Data.Sqlite;
-using ModuleHub.Domain.Entities.Common;
 using System;
 using System.Drawing;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ModuleHub.DataAccess.FluentConfigurations;
 using ModuleHub.DataAccess.FluentConfigurations.Common;
+using ModuleHub.DataAccess.FluentConfigurations;
+using ModuleHub.Domain.Entities.Common;
 using ModuleHub.Domain.Entities;
 
 #endregion
@@ -33,7 +33,7 @@ namespace ModuleHub.DataAccess.Contexts
         /// <summary>
         /// Tabla para los <see cref="DataSource"/>
         /// </summary>
-        public DbSet<DataSource> ModbusNodes { get; set; }
+        public DbSet<DataSource> DataSources { get; set; }
 
 
         /// <summary>
@@ -97,16 +97,18 @@ namespace ModuleHub.DataAccess.Contexts
 
 
             //Relacion de 1 a 1 entre DataSource y CommunicationClient
-            modelBuilder.Entity<DataSource>().HasOne(p => p.CommunicationClient).WithOne(d => d.DataSource).HasForeignKey<CommunicationClient>(d => d.DataSourceId);
+            modelBuilder.Entity<CommunicationClient>().HasOne(p => p.DataSource).WithOne(d => d.CommunicationClient).HasForeignKey<CommunicationClient>(d => d.DataSourceId);
+
+            ////Relacion de 1 a muchos entre CommunicationClient y CommunicationNodes
+            //modelBuilder.Entity<CommunicationClient>().HasMany(c => c.CommunicationNodes).WithOne(n => n.CommunicationClient).HasForeignKey(n => n.CommunnicationClientId);
 
 
             // Crea las tablas de las Entidades que estaran en la Base de Datos
-            modelBuilder.ApplyConfiguration(new CommunicationNodeEntityTypeConfigurationBase());
+            modelBuilder.ApplyConfiguration(new CommunicationNodeEntityTypeConfiguration());
             modelBuilder.ApplyConfiguration(new CommunicationClientEntityTypeConfiguration());
             modelBuilder.ApplyConfiguration(new DataSourceEntityTypeConfiguration());
-            modelBuilder.ApplyConfiguration(new ModbusNodeEntityTypeConfigurationBase());
             modelBuilder.ApplyConfiguration(new OPCNodeEntityTypeConfiguration());
-
+            modelBuilder.ApplyConfiguration(new ModbusNodeEntityTypeConfiguration());
         }
 
         #endregion

@@ -14,7 +14,7 @@ namespace ModuleHub.DataAccess.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "TEXT", nullable: false),
-                    ComunnicationClientId = table.Column<Guid>(type: "TEXT", nullable: false)
+                    CommunicationClientId = table.Column<Guid>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {

@@ -2,8 +2,8 @@
 
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using ModuleHub.Domain.Entities;
 using ModuleHub.Domain.Entities.Common;
+using ModuleHub.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +18,7 @@ namespace ModuleHub.DataAccess.FluentConfigurations.Common
     /// <summary>
     /// Modela un MODBUS como clase derivada
     /// </summary>
-    internal class ModbusNodeEntityTypeConfigurationBase : IEntityTypeConfiguration<ModbusNode>
+    public class ModbusNodeEntityTypeConfiguration : IEntityTypeConfiguration<ModbusNode>
     {
 
         /// <summary>

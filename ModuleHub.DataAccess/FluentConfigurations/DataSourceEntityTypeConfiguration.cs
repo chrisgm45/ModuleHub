@@ -4,7 +4,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using ModuleHub.DataAccess.FluentConfigurations.Common;
 using ModuleHub.Domain.Entities;
-using ModuleHub.Domain.Entities.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,8 +19,8 @@ namespace ModuleHub.DataAccess.FluentConfigurations
     /// <summary>
     /// Modela la Configuracion de la Tabla en BD de <see cref="DataSource"/>
     /// </summary>
-    public  class DataSourceEntityTypeConfiguration: EntityTypeConfigurationBase<DataSource>
-       
+    public class DataSourceEntityTypeConfiguration : EntityTypeConfigurationBase<DataSource>
+
     {
         /// <summary>
         /// Permite usar funciones para configurar la tabla 
@@ -39,4 +38,3 @@ namespace ModuleHub.DataAccess.FluentConfigurations
 
     }
 }
-
