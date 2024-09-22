@@ -28,9 +28,10 @@ service DataSource {
 
 message CreateDataSourceRequest {
 
-	string code = 1;
-	int32 inputsCounter = 2;
-	int32 outputsCounter = 3;
+    string id = 1;
+	string code = 2;
+	int32 inputsCounter = 3;
+	int32 outputsCounter = 4;
 }
 
 

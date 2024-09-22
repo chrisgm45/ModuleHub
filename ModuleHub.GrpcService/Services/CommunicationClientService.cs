@@ -6,8 +6,8 @@ using ModuleHub.Contracts;
 using ModuleHub.Contracts.Interfaces;
 using ModuleHub.DataAccess.Repositories.Common;
 using ModuleHub.Protos;
-using ModuleHub.Protos.CommunicationClient;
 using ModuleHub.Protos.DataSource;
+using ModuleHub.Protos.CommunicationClient;
 
 
 #endregion
