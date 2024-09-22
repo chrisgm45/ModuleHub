@@ -1,19 +1,10 @@
 ﻿#region   USNIGS
 
-using Microsoft.EntityFrameworkCore.Design;
-using Microsoft.EntityFrameworkCore.Sqlite.Infrastructure.Internal;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Data.Sqlite;
-using System;
-using System.Drawing;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ModuleHub.DataAccess.FluentConfigurations.Common;
 using ModuleHub.DataAccess.FluentConfigurations;
-using ModuleHub.Domain.Entities.Common;
+using ModuleHub.DataAccess.FluentConfigurations.Common;
 using ModuleHub.Domain.Entities;
+using ModuleHub.Domain.Entities.Common;
 
 #endregion
 

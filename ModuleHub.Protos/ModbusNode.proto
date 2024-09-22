@@ -1,0 +1,71 @@
+﻿
+
+
+syntax = "proto3";
+
+option csharp_namespace = "ModuleHub.Protos.ModbusNode";
+
+package Protos;
+
+
+
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/struct.proto";
+import "common.proto";
+import "CommunicationClient.proto";
+
+
+service ModbusNode {
+
+    
+	rpc CreateModbusNode (CreateModbusNodeRequest) returns (ModbusNodeDTO);
+	rpc GetModbusNode (GetRequest) returns (NullableModbusNodeDTO);
+	rpc GetAllModbusNodes (google.protobuf.Empty) returns (ModbusNodes);
+	rpc UpdateModbusNode (ModbusNodeDTO) returns (google.protobuf.Empty);
+	rpc DeleteModbusNode (DeleteRequest) returns (google.protobuf.Empty);
+
+}
+
+
+message CreateModbusNodeRequest {
+
+	string id = 1;
+	string name = 2;
+	int32 recordSource = 3;
+	CommunicationClientDTO communicationClient = 4;
+
+}
+
+
+
+message ModbusNodes {
+
+	repeated ModbusNodeDTO items = 1;
+
+	}
+
+
+
+message NullableModbusNodeDTO {
+
+	oneof kind {
+
+		google.protobuf.NullValue nule = 1;
+		ModbusNodeDTO modbusNode = 2;
+	}
+
+}
+
+
+
+
+message  ModbusNodeDTO {
+	
+	string id = 1;
+	string name = 2;
+	int32 recordSource = 3;
+	int32 recordToRead = 4;
+	CommunicationClientDTO communicationClient = 5;
+
+}

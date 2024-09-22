@@ -1,0 +1,36 @@
+﻿
+
+syntax = "proto3";
+
+option csharp_namespace = "ModuleHub.Protos";
+
+package Protos;
+
+
+
+// The request message containing the user's name.
+message GetRequest {
+  string id = 1;
+}
+
+// The response message containing the greetings.
+message DeleteRequest {
+  string id = 1;
+}
+
+
+
+enum CommunicationClientType {
+
+		MODBUS = 0;
+		OPC = 1;
+}
+
+
+enum DataSourceType {
+
+		PLC = 0;
+		HMI = 1;
+}
+
+

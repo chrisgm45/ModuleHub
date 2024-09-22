@@ -1,14 +1,6 @@
 ﻿#region   USINGS
 
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ModuleHub.Domain.Entities.Common;
-using ModuleHub.Domain.Entities;
 
 #endregion
 

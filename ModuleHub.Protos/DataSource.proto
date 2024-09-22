@@ -1,0 +1,69 @@
+﻿
+
+syntax = "proto3";
+
+option csharp_namespace = "ModuleHub.Protos.DataSource";
+
+package Protos;
+
+
+
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/struct.proto";
+import "common.proto";
+
+
+service DataSource {
+
+    
+	rpc CreateDataSource (CreateDataSourceRequest) returns (DataSourceDTO);
+	rpc GetDataSource (GetRequest) returns (NullableDataSourceDTO);
+	rpc GetAllDataSources (google.protobuf.Empty) returns (DataSources);
+	rpc UpdateDataSource (DataSourceDTO) returns (google.protobuf.Empty);
+	rpc DeleteDataSource (DeleteRequest) returns (google.protobuf.Empty);
+
+}
+
+
+message CreateDataSourceRequest {
+
+	string code = 1;
+	int32 inputsCounter = 2;
+	int32 outputsCounter = 3;
+}
+
+
+
+message DataSources {
+
+	repeated DataSourceDTO items = 1;
+
+	}
+
+
+
+message NullableDataSourceDTO {
+
+	oneof kind {
+
+		google.protobuf.NullValue nule = 1;
+		DataSourceDTO dataSource = 2;
+	}
+
+}
+
+
+
+
+message  DataSourceDTO {
+	
+	string id = 1;
+	string code  = 2;
+	int32 inputsCounter = 3;
+	int32 outputsCounter = 4;
+	string description = 5;
+	string location = 6;
+	DataSourceType dataSourceType = 7;
+
+}

@@ -1,20 +1,14 @@
 ﻿#region     USINGS
 
-using Microsoft.VisualStudio.TestPlatform.CommunicationUtilities;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
-using ModuleHub.Contracts.Interfaces;
 using ModuleHub.Contracts;
+using ModuleHub.Contracts.Interfaces;
 using ModuleHub.DataAccess.Contexts;
 using ModuleHub.DataAccess.Repositories.Common;
 using ModuleHub.DataAccess.Tests.Utilities;
-using ModuleHub.DataAccess;
 using ModuleHub.Domain.Entities;
+using System;
+using System.Linq;
 
 #endregion
 

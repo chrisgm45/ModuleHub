@@ -1,0 +1,16 @@
+﻿
+
+
+{
+  "profiles": {
+    "ModuleHub.GrpcService": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": false,
+      "applicationUrl": "http://localhost:5198;https://localhost:7145",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

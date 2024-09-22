@@ -2,13 +2,8 @@
 
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using ModuleHub.Domain.Entities.Common;
 using ModuleHub.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ModuleHub.Domain.Entities.Common;
 
 #endregion
 

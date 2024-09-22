@@ -1,0 +1,69 @@
+﻿
+
+syntax = "proto3";
+
+option csharp_namespace = "ModuleHub.Protos.CommunicationClient";
+
+package Protos;
+
+
+
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/struct.proto";
+import "common.proto";
+import "DataSource.proto";
+
+
+service CommunicationClient {
+
+    
+	rpc CreateCommunicationClient (CreateCommunicationClientRequest) returns (CommunicationClientDTO);
+	rpc GetCommunicationClient (GetRequest) returns (NullableCommunicationClientDTO);
+	rpc GetAllCommunicationClients (google.protobuf.Empty) returns (CommunicationClients);
+	rpc UpdateCommunicationClient (CommunicationClientDTO) returns (google.protobuf.Empty);
+	rpc DeleteCommunicationClient (DeleteRequest) returns (google.protobuf.Empty);
+
+}
+
+
+message CreateCommunicationClientRequest {
+
+	string id = 1;
+	string addressIp = 2;
+	DataSourceDTO dataSource  = 3;
+
+}
+
+
+
+message CommunicationClients {
+
+	repeated CommunicationClientDTO items = 1;
+
+	}
+
+
+
+message NullableCommunicationClientDTO {
+
+	oneof kind {
+
+		google.protobuf.NullValue nule = 1;
+		CommunicationClientDTO communicationClient = 2;
+	}
+
+}
+
+
+
+
+message  CommunicationClientDTO {
+	
+	string id = 1;
+	string addressIp = 2;
+	string connectionPort = 3;
+	DataSourceDTO dataSource  = 4;
+	CommunicationClientType communicationClientType = 5;
+
+}

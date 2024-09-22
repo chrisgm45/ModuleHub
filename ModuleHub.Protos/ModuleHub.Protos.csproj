@@ -6,13 +6,22 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
+
+	<ItemGroup>
+		<Protobuf Include="*.proto" GrpcServices="Both" />
+	</ItemGroup>
+
+
+	<ItemGroup>
+	  <None Remove="CommunicationClient.proto" />
+	  <None Remove="ModbusNode.proto" />
+	  <None Remove="OPCNode.proto" />
+	</ItemGroup>
+
+
+	<ItemGroup>
     <PackageReference Include="Google.Protobuf" Version="3.27.2" />
     <PackageReference Include="Grpc.AspNetCore" Version="2.63.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\ModuleHub.Domain\ModuleHub.Domain.csproj" />
   </ItemGroup>
 
 </Project>

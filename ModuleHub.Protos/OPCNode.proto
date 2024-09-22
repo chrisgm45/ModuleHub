@@ -1,0 +1,67 @@
+﻿
+
+syntax = "proto3";
+
+option csharp_namespace = "ModuleHub.Protos.OPCNode";
+
+package Protos;
+
+
+
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/struct.proto";
+import "common.proto";
+import "CommunicationClient.proto";
+
+
+service OPCNode {
+
+    
+	rpc CreateOPCNode (CreateOPCNodeRequest) returns (OPCNodeDTO);
+	rpc GetOPCNode (GetRequest) returns (NullableOPCNodeDTO);
+	rpc GetAllOPCNodes (google.protobuf.Empty) returns (OPCNodes);
+	rpc UpdateOPCNode (OPCNodeDTO) returns (google.protobuf.Empty);
+	rpc DeleteOPCNode (DeleteRequest) returns (google.protobuf.Empty);
+
+}
+
+
+message CreateOPCNodeRequest {
+
+	string id = 1;
+	string addressLabel = 2;
+	CommunicationClientDTO communicationClient  = 3;
+
+}
+
+
+
+message OPCNodes {
+
+	repeated OPCNodeDTO items = 1;
+
+	}
+
+
+
+message NullableOPCNodeDTO {
+
+	oneof kind {
+
+		google.protobuf.NullValue nule = 1;
+		OPCNodeDTO opcNode = 2;
+	}
+
+}
+
+
+
+
+message  OPCNodeDTO {
+	
+	string id = 1;
+	string addressLabel = 2;
+	CommunicationClientDTO communicationClient  = 3;
+
+}
