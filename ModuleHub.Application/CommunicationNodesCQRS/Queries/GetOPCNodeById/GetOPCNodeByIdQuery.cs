@@ -14,7 +14,7 @@ namespace ModuleHub.Application.DataSources.Queries.GetDataSourceById
 {
 
 
-    public record GetOPCNodeByIdQuery(Guid Id) : IQuery<OPCNode>;
+    public record GetOPCNodeByIdQuery(Guid Id) : IQuery<OPCNode?>;
 
 
 }

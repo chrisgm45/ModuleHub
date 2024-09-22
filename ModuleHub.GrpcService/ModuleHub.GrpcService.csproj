@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ModuleHub.Application\ModuleHub.Application.csproj" />
     <ProjectReference Include="..\ModuleHub.ConsoleApp\ModuleHub.ConsoleApp.csproj" />
     <ProjectReference Include="..\ModuleHub.Contracts\ModuleHub.Contracts.csproj" />
     <ProjectReference Include="..\ModuleHub.DataAcces.Tests\ModuleHub.DataAcces.Tests.csproj" />

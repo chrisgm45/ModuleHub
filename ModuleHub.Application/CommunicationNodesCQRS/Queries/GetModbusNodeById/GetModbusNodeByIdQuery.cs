@@ -14,7 +14,7 @@ namespace ModuleHub.Application.DataSources.Queries.GetDataSourceById
 {
 
 
-    public record GetModbusNodeByIdQuery(Guid Id) : IQuery<ModbusNode>;
+    public record GetModbusNodeByIdQuery(Guid Id) : IQuery<ModbusNode?>;
 
 
 }

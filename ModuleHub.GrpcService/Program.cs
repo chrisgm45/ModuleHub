@@ -1,11 +1,14 @@
+#region    USINGS
+
 using ModuleHub.Contracts;
 using ModuleHub.Contracts.Interfaces;
 using ModuleHub.DataAccess;
 using ModuleHub.DataAccess.Contexts;
 using ModuleHub.DataAccess.Repositories.Common;
 using ModuleHub.GrpcService.Services;
+using System.Reflection.Metadata;
 
-
+#endregion
 
 namespace ModuleHub.GrpcService;
 
@@ -14,12 +17,24 @@ public class Program
     public static void Main(string[] args)
     {
 
+
+
+
         var builder = WebApplication.CreateBuilder(args);
 
         // Additional configuration is required to successfully run gRPC on macOS.
         // For instructions on how to configure Kestrel and gRPC clients on macOS, visit https://go.microsoft.com/fwlink/?linkid=2099682
 
-        
+
+        // Add services to the container.
+
+        builder.Services.AddMediatR(new MediatRServiceConfiguration()
+        {
+            AutoRegisterRequestProcessors = true,
+        }
+            .RegisterServicesFromAssemblies(typeof(AssemblyReference).Assembly));
+
+
         // Add services to the container.
         builder.Services.AddGrpc();
         builder.Services.AddSingleton("Data Source=Data.sqlite");

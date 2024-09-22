@@ -10,6 +10,10 @@ using System.Threading.Tasks;
 
 namespace ModuleHub.Application
 {
+
+    /// <summary>
+    /// Referencia para usar los HANDLERS 
+    /// </summary>
     public class AssemblyReference
     {
 

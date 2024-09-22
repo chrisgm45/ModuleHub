@@ -34,7 +34,7 @@ namespace ModuleHub.Domain.Entities
         /// <summary>
         /// Tipo de <see cref="CommunicationClient"/> 
         /// </summary>
-        CommunicationClientType CommunicationClientType { get; set; }
+       public CommunicationClientType CommunicationClientType { get; set; }
 
 
 
