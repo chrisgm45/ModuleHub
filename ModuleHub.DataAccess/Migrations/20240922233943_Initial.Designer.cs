@@ -11,7 +11,7 @@ using ModuleHub.DataAccess.Contexts;
 namespace ModuleHub.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20240917034922_Initial")]
+    [Migration("20240922233943_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

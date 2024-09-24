@@ -13,6 +13,7 @@ using ModuleHub.Application.DataSources.Queries.GetDataSourceById;
 using ModuleHub.Application.DataSourcesCQRS.Commands.CreateDataSource;
 using ModuleHub.Contracts;
 using ModuleHub.Contracts.Interfaces;
+using ModuleHub.DataAccess.Repositories.Common;
 using ModuleHub.Domain;
 using ModuleHub.Protos;
 using ModuleHub.Protos.DataSource;
@@ -29,6 +30,21 @@ namespace ModuleHub.GrpcService.Services
     public class DataSourceService : DataSource.DataSourceBase
 
     {
+
+        //private readonly IRequestHandler
+        private readonly IMediator _mediator;
+        private readonly IMapper _mapper;
+        private readonly IDataSourceRepository _dataSourceRepository;
+        private readonly IUnitOfWork _unitOfWork;
+
+        public DataSourceService(IMediator mediator, IMapper mapper, IDataSourceRepository dataSourceRepository, IUnitOfWork unitOfWork)
+        {
+            _mediator = mediator;
+            _mapper = mapper;
+            _dataSourceRepository = dataSourceRepository;
+                _unitOfWork = unitOfWork;
+        }
+
 
         public override Task<DataSourceDTO> CreateDataSource(CreateDataSourceRequest request, ServerCallContext context)
         {
@@ -88,30 +104,15 @@ namespace ModuleHub.GrpcService.Services
 
 
 
-        private readonly IMediator _mediator;
-        private readonly IMapper _mapper;
+       
+        ///// <summary>
+        ///// Inyeccion de instancias de los Servicios
+        ///// </summary>
+        ///// <param name="dataSourceRepository">Repositorio de la <see cref="DataSource"/></param>
+        ///// <param name="unitOfWork">Unidad de Trabajo en Base de Datos</param>
+        ////
 
-        public DataSourceService(IMediator mediator, IMapper mapper)
-        {
-            _mediator = mediator;
-            _mapper = mapper;
-        }
-
-
-
-        private readonly IDataSourceRepository _dataSourceRepository;
-        private readonly IUnitOfWork _unitOfWork;
-        /// <summary>
-        /// Inyeccion de instancias de los Servicios
-        /// </summary>
-        /// <param name="dataSourceRepository">Repositorio de la <see cref="DataSource"/></param>
-        /// <param name="unitOfWork">Unidad de Trabajo en Base de Datos</param>
-        public DataSourceService (IDataSourceRepository dataSourceRepository, IUnitOfWork unitOfWork)
-        {
-            _dataSourceRepository = dataSourceRepository;
-            _unitOfWork = unitOfWork;
-
-        }
+        //}
 
 
 

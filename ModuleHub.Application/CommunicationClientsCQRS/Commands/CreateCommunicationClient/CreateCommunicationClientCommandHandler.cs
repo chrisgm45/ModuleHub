@@ -3,6 +3,7 @@
 using ModuleHub.Application.Abstract;
 using ModuleHub.Contracts;
 using ModuleHub.Contracts.Interfaces;
+using ModuleHub.DataAccess.Contexts;
 using ModuleHub.DataAccess.Repositories.Common;
 using ModuleHub.Domain.Entities;
 using System;
@@ -38,6 +39,7 @@ namespace ModuleHub.Application.CommunicationClientsCQRS.Commands.CreateCommunic
 
             _communicationClientRepository.AddCommunicationClient(result);
             _unitOfWork.SaveChanges();
+            
 
             return Task.FromResult(result);
         }

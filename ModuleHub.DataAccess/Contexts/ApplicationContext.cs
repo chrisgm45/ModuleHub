@@ -1,6 +1,7 @@
 ﻿#region   USNIGS
 
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
 using ModuleHub.DataAccess.FluentConfigurations;
 using ModuleHub.DataAccess.FluentConfigurations.Common;
 using ModuleHub.Domain.Entities;
@@ -123,4 +124,6 @@ namespace ModuleHub.DataAccess.Contexts
 
 
     }
+
+
 }

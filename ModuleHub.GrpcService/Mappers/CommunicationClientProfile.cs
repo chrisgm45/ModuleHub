@@ -13,7 +13,7 @@ namespace ModuleHub.GrpcService.Mappers
                 .ForMember(t => t.AddressIp, o => o.MapFrom(s => s.AddressIp))
                 .ForMember(t => t.ConnectionPort, o => o.MapFrom(s => s.ConnectionPort))
                 .ForMember(t => t.DataSource, o => o.MapFrom(s => s.DataSource))
-               .ForMember(t => t.CommunicationClientType, o => o.MapFrom(s => (ModuleHub.Protos.CommunicationClientType)s.CommunicationClientType))
+           //   .ForMember(t => t.CommunicationClientType, o => o.MapFrom(s => (ModuleHub.Protos.CommunicationClientType)s.CommunicationClientType))
 
                  ;
 
@@ -23,7 +23,7 @@ namespace ModuleHub.GrpcService.Mappers
                     .ForMember(t => t.AddressIp, o => o.MapFrom(s => s.AddressIp))
                     .ForMember(t => t.ConnectionPort, o => o.MapFrom(s => s.ConnectionPort))
                     .ForMember(t => t.DataSource, o => o.MapFrom(s => s.DataSource))
-                    .ForMember(t => t.CommunicationClientType, o => o.MapFrom(s => (ModuleHub.Domain.Utilities.Types.CommunicationClientType)s.CommunicationClientType))
+               //    .ForMember(t => t.CommunicationClientType, o => o.MapFrom(s => (ModuleHub.Domain.Utilities.Types.CommunicationClientType)s.CommunicationClientType))
                     ;
         }
     }

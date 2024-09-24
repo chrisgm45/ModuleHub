@@ -30,7 +30,7 @@ namespace ModuleHub.Application.DataSourcesCQRS.Commands.CreateDataSource
             _unitOfWork = unitOfWork;
         }
 
-        public Task<DataSource> Handle(CreateDataSourceCommand request, CancellationToken cancellationToken)
+        public  Task<DataSource> Handle(CreateDataSourceCommand request, CancellationToken cancellationToken)
         {
             DataSource result = new DataSource(
                 Guid.NewGuid(),
@@ -40,6 +40,7 @@ namespace ModuleHub.Application.DataSourcesCQRS.Commands.CreateDataSource
 
             _dataSourceRepository.AddDataSource(result);
             _unitOfWork.SaveChanges();
+
 
             return Task.FromResult(result);
         }

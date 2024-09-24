@@ -8,9 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
     <PackageReference Include="EntityFramework" Version="6.4.4" />
     <PackageReference Include="Google.Protobuf" Version="3.27.2" />
     <PackageReference Include="Grpc.AspNetCore" Version="2.63.0" />
+    <PackageReference Include="MediatR" Version="12.3.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.27" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.27">
       <PrivateAssets>all</PrivateAssets>
@@ -19,8 +21,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ModuleHub.Contracts\ModuleHub.Contracts.csproj" />
+    <ProjectReference Include="..\ModuleHub.DataAcces.Tests\ModuleHub.DataAcces.Tests.csproj" />
     <ProjectReference Include="..\ModuleHub.DataAccess\ModuleHub.DataAccess.csproj" />
     <ProjectReference Include="..\ModuleHub.Domain\ModuleHub.Domain.csproj" />
+    <ProjectReference Include="..\ModuleHub.Protos\ModuleHub.Protos.csproj" />
   </ItemGroup>
 
 </Project>

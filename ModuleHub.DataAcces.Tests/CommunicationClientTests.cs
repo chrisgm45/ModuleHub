@@ -7,6 +7,7 @@ using ModuleHub.DataAccess.Contexts;
 using ModuleHub.DataAccess.Repositories.Common;
 using ModuleHub.DataAccess.Tests.Utilities;
 using ModuleHub.Domain.Entities;
+using ModuleHub.Domain.Utilities.Types;
 using System;
 using System.Linq;
 
@@ -48,7 +49,8 @@ namespace ModuleHub.DataAccess.Tests
             string addressIp,
             string code,
             int inputsCounter,
-            int outputsCounter)
+            int outputsCounter
+            )
 
         {
             //Arrange

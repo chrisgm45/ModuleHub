@@ -35,7 +35,9 @@ namespace ModuleHub.GrpcService.Services
         {
             var command = new CreateCommunicationClientCommand(
                request.AddressIp,
-               _mapper.Map<ModuleHub.Domain.Entities.DataSource>(request.DataSource));
+               _mapper.Map<ModuleHub.Domain.Entities.DataSource>(request.DataSource)
+               
+               );
 
             var result = _mediator.Send(command).Result;
 
@@ -91,31 +93,19 @@ namespace ModuleHub.GrpcService.Services
         }
 
 
-
+        private readonly ICommunicationClientRepository _communicationClientRepository;
+        private readonly IUnitOfWork _unitOfWork;
         private readonly IMediator _mediator;
         private readonly IMapper _mapper;
 
-        public CommunicationClientService(IMediator mediator, IMapper mapper)
+        public CommunicationClientService(IMediator mediator, IMapper mapper, ICommunicationClientRepository communicationClientRepository, IUnitOfWork unitOfWork)
         {
             _mediator = mediator;
             _mapper = mapper;
-        }
-
-
-
-        private readonly ICommunicationClientRepository _communicationClientRepository;
-        private readonly IUnitOfWork _unitOfWork;
-        /// <summary>
-        /// Inyeccion de instancias de los Servicios
-        /// </summary>
-        /// <param name="communicationClientRepository">Repositorio de la <see cref="CommunicationClient"/></param>
-        /// <param name="unitOfWork">Unidad de Trabajo en Base de Datos</param>
-        public CommunicationClientService(ICommunicationClientRepository communicationClientRepository, IUnitOfWork unitOfWork)
-        {
             _communicationClientRepository = communicationClientRepository;
             _unitOfWork = unitOfWork;
-
         }
-
+       
+       
     }
 }
