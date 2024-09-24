@@ -6,6 +6,10 @@ using ModuleHub.DataAccess.FluentConfigurations;
 using ModuleHub.DataAccess.FluentConfigurations.Common;
 using ModuleHub.Domain.Entities;
 using ModuleHub.Domain.Entities.Common;
+using Microsoft.EntityFrameworkCore.Sqlite.Infrastructure.Internal;
+using System.Drawing;
+using Microsoft.Data.Sqlite;
+
 
 #endregion
 
@@ -89,7 +93,7 @@ namespace ModuleHub.DataAccess.Contexts
 
 
             //Relacion de 1 a 1 entre DataSource y CommunicationClient
-            modelBuilder.Entity<CommunicationClient>().HasOne(p => p.DataSource).WithOne(d => d.CommunicationClient).HasForeignKey<CommunicationClient>(d => d.DataSourceId);
+           // modelBuilder.Entity<CommunicationClient>().HasOne(p => p.DataSource).WithOne(d => d.CommunicationClient).HasForeignKey<CommunicationClient>(d => d.DataSourceId);
 
             ////Relacion de 1 a muchos entre CommunicationClient y CommunicationNodes
             //modelBuilder.Entity<CommunicationClient>().HasMany(c => c.CommunicationNodes).WithOne(n => n.CommunicationClient).HasForeignKey(n => n.CommunnicationClientId);

@@ -26,6 +26,8 @@ namespace ModuleHub.DataAccess.FluentConfigurations
             /// </summary>
             builder.ToTable("CommunicationClients");
             base.Configure(builder);
+            builder.HasOne(p => p.DataSource).WithOne(d => d.CommunicationClient).HasForeignKey<CommunicationClient>(d => d.DataSourceId);
+
         }
 
     }

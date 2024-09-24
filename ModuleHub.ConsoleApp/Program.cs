@@ -28,17 +28,7 @@ namespace ModuleHub.ConsoleApp
     internal class Program
     {
 
-        private readonly IDataSourceRepository _dataSourceRepository;
-        private readonly IUnitOfWork _unitOfWork;
-
-        public Program(
-            IDataSourceRepository dataSourceRepository,
-            IUnitOfWork unitOfWork)
-        {
-            _dataSourceRepository = dataSourceRepository;
-            _unitOfWork = unitOfWork;
-        }
-
+        
 
         static async Task Main(string[] args)
         {
@@ -47,8 +37,8 @@ namespace ModuleHub.ConsoleApp
 
 
 
-            if (File.Exists("ModuleHub_DB.sqlite"))
-                File.Delete("ModuleHub_DB.sqlite");
+           // if (File.Exists("ModuleHub_DB.sqlite"))
+            //    File.Delete("ModuleHub_DB.sqlite");
 
             string connectionString = "Data Source = ModuleHub_DB.sqlite";
 
@@ -155,43 +145,43 @@ namespace ModuleHub.ConsoleApp
             #region    CREATING       COMMUNICATION_CLIENT
 
 
-            //Console.WriteLine("");
-            //Console.WriteLine("");
-            //Console.WriteLine("");
-            //Console.WriteLine("     Press Any Key To Create The COMMUNICATION  CLIENT....");
-            //Console.WriteLine("");
-            //Console.WriteLine("     Proccessing....");
-            //Console.ReadKey();
-            //Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("     Press Any Key To Create The COMMUNICATION  CLIENT....");
+            Console.WriteLine("");
+            Console.WriteLine("     Proccessing....");
+            Console.ReadKey();
+            Console.WriteLine("");
 
 
-            //var createResponse1 = CommunicationClientClient.CreateCommunicationClient(new CreateCommunicationClientRequest()
-            //{
-            //    AddressIp = "102.34.55.86",
-            //    DataSource = createResponse0
+            var createResponse1 = CommunicationClientClient.CreateCommunicationClient(new CreateCommunicationClientRequest()
+            {
+                AddressIp = "102.34.55.86",
+                DataSource = createResponse0
 
-            //});
+            });
 
 
-            ////Fallo en la creación del mensaje, retorno.
-            //if (createResponse1 is null)
-            //{
+            //Fallo en la creación del mensaje, retorno.
+            if (createResponse1 is null)
+            {
 
-            //    Console.WriteLine("      Cannot create Communication   Client.....");
-            //    channel.Dispose();
-            //    return;
-            //}
+                Console.WriteLine("      Cannot create Communication   Client.....");
+                channel.Dispose();
+                return;
+            }
 
-            ////Mensaje creado
-            //else
-            //{
+            //Mensaje creado
+            else
+            {
 
-            //    Console.WriteLine("                                ********    COMMUNICATION  CLIENT   ********    ");
-            //    Console.WriteLine("                                   ¡¡     SUCCESFULL     CREATION       !!");
-            //    Console.WriteLine("");
-            //    Console.WriteLine(""); Console.WriteLine(""); Console.WriteLine("");
+                Console.WriteLine("                                ********    COMMUNICATION  CLIENT   ********    ");
+                Console.WriteLine("                                   ¡¡     SUCCESFULL     CREATION       !!");
+                Console.WriteLine("");
+                Console.WriteLine(""); Console.WriteLine(""); Console.WriteLine("");
 
-            //}
+            }
 
 
 
@@ -201,44 +191,44 @@ namespace ModuleHub.ConsoleApp
             #region    CREATING       OPC_NODE
 
 
-            //Console.WriteLine("");
-            //Console.WriteLine("");
-            //Console.WriteLine("");
-            //Console.WriteLine("     Press Any Key To Create The OPC NODE....");
-            //Console.WriteLine("");
-            //Console.WriteLine("     Proccessing....");
-            //Console.ReadKey();
-            //Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("     Press Any Key To Create The OPC NODE....");
+            Console.WriteLine("");
+            Console.WriteLine("     Proccessing....");
+            Console.ReadKey();
+            Console.WriteLine("");
 
 
-            //var createResponse2 = OPCNodeClient.CreateOPCNode(new CreateOPCNodeRequest()
-            //{
-            //    AddressLabel = "OPC_NODE_1",
-            //    CommunicationClient = createResponse1
+            var createResponse2 = OPCNodeClient.CreateOPCNode(new CreateOPCNodeRequest()
+            {
+                AddressLabel = "OPC_NODE_1",
+                CommunicationClient = createResponse1
 
 
-            //});
+            });
 
 
-            ////Fallo en la creación del mensaje, retorno.
-            //if (createResponse2 is null)
-            //{
+            //Fallo en la creación del mensaje, retorno.
+            if (createResponse2 is null)
+            {
 
-            //    Console.WriteLine("      Cannot create OPC  NODE.....");
-            //    channel.Dispose();
-            //    return;
-            //}
+                Console.WriteLine("      Cannot create OPC  NODE.....");
+                channel.Dispose();
+                return;
+            }
 
-            ////Mensaje creado
-            //else
-            //{
+            //Mensaje creado
+            else
+            {
 
-            //    Console.WriteLine("                                      ********    OPC_NODE   ********    ");
-            //    Console.WriteLine("                                   ¡¡     SUCCESFULL     CREATION       !!");
-            //    Console.WriteLine("");
-            //    Console.WriteLine(""); Console.WriteLine(""); Console.WriteLine("");
+                Console.WriteLine("                                      ********    OPC_NODE   ********    ");
+                Console.WriteLine("                                   ¡¡     SUCCESFULL     CREATION       !!");
+                Console.WriteLine("");
+                Console.WriteLine(""); Console.WriteLine(""); Console.WriteLine("");
 
-            //}
+            }
 
 
 
@@ -248,45 +238,45 @@ namespace ModuleHub.ConsoleApp
             #region    CREATING       MODBUS_NODE
 
 
-            //Console.WriteLine("");
-            //Console.WriteLine("");
-            //Console.WriteLine("");
-            //Console.WriteLine("     Press Any Key To Create The MODBUS NODE....");
-            //Console.WriteLine("");
-            //Console.WriteLine("     Proccessing....");
-            //Console.ReadKey();
-            //Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("     Press Any Key To Create The MODBUS NODE....");
+            Console.WriteLine("");
+            Console.WriteLine("     Proccessing....");
+            Console.ReadKey();
+            Console.WriteLine("");
 
 
-            //var createResponse3 = ModbusNodeClient.CreateModbusNode(new CreateModbusNodeRequest()
-            //{
-            //    Name = "MODBUS_NODE_1",
-            //    RecordSource = 6,
-            //    CommunicationClient = createResponse1
+            var createResponse3 = ModbusNodeClient.CreateModbusNode(new CreateModbusNodeRequest()
+            {
+                Name = "MODBUS_NODE_1",
+                RecordSource = 6,
+                CommunicationClient = createResponse1
 
 
-            //});
+            });
 
 
-            ////Fallo en la creación del mensaje, retorno.
-            //if (createResponse3 is null)
-            //{
+            //Fallo en la creación del mensaje, retorno.
+            if (createResponse3 is null)
+            {
 
-            //    Console.WriteLine("      Cannot create MODBUS  NODE.....");
-            //    channel.Dispose();
-            //    return;
-            //}
+                Console.WriteLine("      Cannot create MODBUS  NODE.....");
+                channel.Dispose();
+                return;
+            }
 
-            ////Mensaje creado
-            //else
-            //{
+            //Mensaje creado
+            else
+            {
 
-            //    Console.WriteLine("                                      ********    MODBUS_NODE   ********    ");
-            //    Console.WriteLine("                                   ¡¡     SUCCESFULL     CREATION       !!");
-            //    Console.WriteLine("");
-            //    Console.WriteLine(""); Console.WriteLine(""); Console.WriteLine("");
+                Console.WriteLine("                                      ********    MODBUS_NODE   ********    ");
+                Console.WriteLine("                                   ¡¡     SUCCESFULL     CREATION       !!");
+                Console.WriteLine("");
+                Console.WriteLine(""); Console.WriteLine(""); Console.WriteLine("");
 
-            //}
+            }
 
 
 
@@ -348,142 +338,142 @@ namespace ModuleHub.ConsoleApp
 
             #region      GET           COMMUNICATION_CLIENT
 
-            //Console.WriteLine("    Press Any Key To Get All COMMUNICATION CLIENTS on DataBase");
-            //Console.WriteLine("");
-            //Console.ReadKey();
-            //var getResponse1 = CommunicationClientClient.GetAllCommunicationClients(new Google.Protobuf.WellKnownTypes.Empty());
-            //if (getResponse1.Items is null)
-            //{
-            //    Console.WriteLine("   Is NULL");
-            //    channel.Dispose();
-            //    return;
-            //}
-            //else
-            //{
+            Console.WriteLine("    Press Any Key To Get All COMMUNICATION CLIENTS on DataBase");
+            Console.WriteLine("");
+            Console.ReadKey();
+            var getResponse1 = CommunicationClientClient.GetAllCommunicationClients(new Google.Protobuf.WellKnownTypes.Empty());
+            if (getResponse1.Items is null)
+            {
+                Console.WriteLine("   Is NULL");
+                channel.Dispose();
+                return;
+            }
+            else
+            {
 
-            //    Console.WriteLine($"    SuccesFull Obtaining [({getResponse1.Items.Count})] COMMUNICATION CLIENTS");
-            //    Console.WriteLine("");
-            //}
+                Console.WriteLine($"    SuccesFull Obtaining [({getResponse1.Items.Count})] COMMUNICATION CLIENTS");
+                Console.WriteLine("");
+            }
 
-            //Console.WriteLine("");
-            //Console.WriteLine("");
-            //Console.WriteLine($"    Press Any Key To Get The   COMMUNICATION CLIENTE   With  ID => [ {createResponse1.Id} ] ");
-            //Console.WriteLine("");
-            //Console.WriteLine("    Proccessing....");
-            //Console.WriteLine("");
-            //Console.ReadKey();
-            //var getByIdResponse1 = CommunicationClientClient.GetCommunicationClient(new GetRequest() { Id = createResponse1.Id.ToString() });
-            //if (getByIdResponse1 is null)
-            //{
-            //    Console.WriteLine("   Cannot get COMMUNICATION CLIENT");
-            //    channel.Dispose();
-            //    return;
-            //}
-            //else
-            //{
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine($"    Press Any Key To Get The   COMMUNICATION CLIENTE   With  ID => [ {createResponse1.Id} ] ");
+            Console.WriteLine("");
+            Console.WriteLine("    Proccessing....");
+            Console.WriteLine("");
+            Console.ReadKey();
+            var getByIdResponse1 = CommunicationClientClient.GetCommunicationClient(new GetRequest() { Id = createResponse1.Id.ToString() });
+            if (getByIdResponse1 is null)
+            {
+                Console.WriteLine("   Cannot get COMMUNICATION CLIENT");
+                channel.Dispose();
+                return;
+            }
+            else
+            {
 
-            //    Console.WriteLine("");
-            //}
+                Console.WriteLine("");
+            }
 
 
-            //Console.WriteLine("                                  ********    COMMUNICATION_CLIENT   ********    ");
-            //Console.WriteLine("                                   ¡¡     SUCCESFULL     OBTAINING       !!");
-            //Console.WriteLine("");
-            //Console.WriteLine("");
+            Console.WriteLine("                                  ********    COMMUNICATION_CLIENT   ********    ");
+            Console.WriteLine("                                   ¡¡     SUCCESFULL     OBTAINING       !!");
+            Console.WriteLine("");
+            Console.WriteLine("");
 
             #endregion
 
             #region      GET           OPC_NODE
 
-            //Console.WriteLine("    Press Any Key To Get All OPC_NODES on DataBase");
-            //Console.WriteLine("");
-            //Console.ReadKey();
-            //var getResponse2 = OPCNodeClient.GetAllOPCNodes(new Google.Protobuf.WellKnownTypes.Empty());
-            //if (getResponse2.Items is null)
-            //{
-            //    Console.WriteLine("   Is NULL");
-            //    channel.Dispose();
-            //    return;
-            //}
-            //else
-            //{
+            Console.WriteLine("    Press Any Key To Get All OPC_NODES on DataBase");
+            Console.WriteLine("");
+            Console.ReadKey();
+            var getResponse2 = OPCNodeClient.GetAllOPCNodes(new Google.Protobuf.WellKnownTypes.Empty());
+            if (getResponse2.Items is null)
+            {
+                Console.WriteLine("   Is NULL");
+                channel.Dispose();
+                return;
+            }
+            else
+            {
 
-            //    Console.WriteLine($"    SuccesFull Obtaining [({getResponse2.Items.Count})] OPC NODES");
-            //    Console.WriteLine("");
-            //}
+                Console.WriteLine($"    SuccesFull Obtaining [({getResponse2.Items.Count})] OPC NODES");
+                Console.WriteLine("");
+            }
 
-            //Console.WriteLine("");
-            //Console.WriteLine("");
-            //Console.WriteLine($"    Press Any Key To Get The   OPC NODE   With  ID => [ {createResponse2.Id} ] ");
-            //Console.WriteLine("");
-            //Console.WriteLine("    Proccessing....");
-            //Console.WriteLine("");
-            //Console.ReadKey();
-            //var getByIdResponse2 = OPCNodeClient.GetOPCNode(new GetRequest() { Id = createResponse2.Id.ToString() });
-            //if (getByIdResponse2 is null)
-            //{
-            //    Console.WriteLine("   Cannot get OPC  NODE");
-            //    channel.Dispose();
-            //    return;
-            //}
-            //else
-            //{
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine($"    Press Any Key To Get The   OPC NODE   With  ID => [ {createResponse2.Id} ] ");
+            Console.WriteLine("");
+            Console.WriteLine("    Proccessing....");
+            Console.WriteLine("");
+            Console.ReadKey();
+            var getByIdResponse2 = OPCNodeClient.GetOPCNode(new GetRequest() { Id = createResponse2.Id.ToString() });
+            if (getByIdResponse2 is null)
+            {
+                Console.WriteLine("   Cannot get OPC  NODE");
+                channel.Dispose();
+                return;
+            }
+            else
+            {
 
-            //    Console.WriteLine("");
-            //}
+                Console.WriteLine("");
+            }
 
 
-            //Console.WriteLine("                                      ********    OPC_NODE   ********    ");
-            //Console.WriteLine("                                   ¡¡     SUCCESFULL     OBTAINING       !!");
-            //Console.WriteLine("");
-            //Console.WriteLine("");
+            Console.WriteLine("                                      ********    OPC_NODE   ********    ");
+            Console.WriteLine("                                   ¡¡     SUCCESFULL     OBTAINING       !!");
+            Console.WriteLine("");
+            Console.WriteLine("");
 
             #endregion
 
             #region      GET           MODBUS_NODE
 
-            //Console.WriteLine("    Press Any Key To Get All MODBUS_NODES on DataBase");
-            //Console.WriteLine("");
-            //Console.ReadKey();
-            //var getResponse3 = ModbusNodeClient.GetAllModbusNodes(new Google.Protobuf.WellKnownTypes.Empty());
-            //if (getResponse3.Items is null)
-            //{
-            //    Console.WriteLine("   Is NULL");
-            //    channel.Dispose();
-            //    return;
-            //}
-            //else
-            //{
+            Console.WriteLine("    Press Any Key To Get All MODBUS_NODES on DataBase");
+            Console.WriteLine("");
+            Console.ReadKey();
+            var getResponse3 = ModbusNodeClient.GetAllModbusNodes(new Google.Protobuf.WellKnownTypes.Empty());
+            if (getResponse3.Items is null)
+            {
+                Console.WriteLine("   Is NULL");
+                channel.Dispose();
+                return;
+            }
+            else
+            {
 
-            //    Console.WriteLine($"    SuccesFull Obtaining [({getResponse3.Items.Count})] MODBUS NODES");
-            //    Console.WriteLine("");
-            //}
+                Console.WriteLine($"    SuccesFull Obtaining [({getResponse3.Items.Count})] MODBUS NODES");
+                Console.WriteLine("");
+            }
 
-            //Console.WriteLine("");
-            //Console.WriteLine("");
-            //Console.WriteLine($"    Press Any Key To Get The   MODBUS NODE   With  ID => [ {createResponse3.Id} ] ");
-            //Console.WriteLine("");
-            //Console.WriteLine("    Proccessing....");
-            //Console.WriteLine("");
-            //Console.ReadKey();
-            //var getByIdResponse3 = ModbusNodeClient.GetModbusNode(new GetRequest() { Id = createResponse3.Id.ToString() });
-            //if (getByIdResponse3 is null)
-            //{
-            //    Console.WriteLine("   Cannot get MODBUS  NODE");
-            //    channel.Dispose();
-            //    return;
-            //}
-            //else
-            //{
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine($"    Press Any Key To Get The   MODBUS NODE   With  ID => [ {createResponse3.Id} ] ");
+            Console.WriteLine("");
+            Console.WriteLine("    Proccessing....");
+            Console.WriteLine("");
+            Console.ReadKey();
+            var getByIdResponse3 = ModbusNodeClient.GetModbusNode(new GetRequest() { Id = createResponse3.Id.ToString() });
+            if (getByIdResponse3 is null)
+            {
+                Console.WriteLine("   Cannot get MODBUS  NODE");
+                channel.Dispose();
+                return;
+            }
+            else
+            {
 
-            //    Console.WriteLine("");
-            //}
+                Console.WriteLine("");
+            }
 
 
-            //Console.WriteLine("                                    ********    MODBUS_NODE   ********    ");
-            //Console.WriteLine("                                   ¡¡     SUCCESFULL     OBTAINING       !!");
-            //Console.WriteLine("");
-            //Console.WriteLine("");
+            Console.WriteLine("                                    ********    MODBUS_NODE   ********    ");
+            Console.WriteLine("                                   ¡¡     SUCCESFULL     OBTAINING       !!");
+            Console.WriteLine("");
+            Console.WriteLine("");
 
             #endregion
 
@@ -525,26 +515,26 @@ namespace ModuleHub.ConsoleApp
             #region      UPDATE      COMMUNICATION  CLIENT
 
 
-            //Console.WriteLine("    Press Any Key To  Update  The  COMMUNICATION CLIENT");
-            //Console.WriteLine("");
-            //Console.WriteLine("    Updating....");
-            //Console.ReadKey();
-            //createResponse1.ConnectionPort = "100.23.55.55";
-            //CommunicationClientClient.UpdateCommunicationClient(createResponse1);
+            Console.WriteLine("    Press Any Key To  Update  The  COMMUNICATION CLIENT");
+            Console.WriteLine("");
+            Console.WriteLine("    Updating....");
+            Console.ReadKey();
+            createResponse1.ConnectionPort = "100.23.55.55";
+            CommunicationClientClient.UpdateCommunicationClient(createResponse1);
 
-            //var updatedGetResponse1 = CommunicationClientClient.GetCommunicationClient(new GetRequest() { Id = createResponse1.Id });
-            //if (updatedGetResponse1 is not null &&
-            //    updatedGetResponse1.KindCase == NullableCommunicationClientDTO.KindOneofCase.CommunicationClient &&
-            //    updatedGetResponse1.CommunicationClient.ConnectionPort == createResponse1.ConnectionPort)
-            //{
-            //    Console.WriteLine("");
-            //    Console.WriteLine("");
-            //    Console.WriteLine("                                ********    COMMUNICATION   CLIENT   ********    ");
-            //    Console.WriteLine("                                   ¡¡     SUCCESFULL     UPDATE       !!");
-            //    Console.WriteLine("");
-            //    Console.WriteLine("");
+            var updatedGetResponse1 = CommunicationClientClient.GetCommunicationClient(new GetRequest() { Id = createResponse1.Id });
+            if (updatedGetResponse1 is not null &&
+                updatedGetResponse1.KindCase == NullableCommunicationClientDTO.KindOneofCase.CommunicationClient &&
+                updatedGetResponse1.CommunicationClient.ConnectionPort == createResponse1.ConnectionPort)
+            {
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("                                ********    COMMUNICATION   CLIENT   ********    ");
+                Console.WriteLine("                                   ¡¡     SUCCESFULL     UPDATE       !!");
+                Console.WriteLine("");
+                Console.WriteLine("");
 
-            //}
+            }
 
 
 
@@ -554,26 +544,26 @@ namespace ModuleHub.ConsoleApp
             #region      UPDATE      OPC  NODE
 
 
-            //Console.WriteLine("    Press Any Key To  Update  The  OPC NODE");
-            //Console.WriteLine("");
-            //Console.WriteLine("    Updating....");
-            //Console.ReadKey();
-            //createResponse2.AddressLabel = "OPC_NODE_1.0.1";
-            //OPCNodeClient.UpdateOPCNode(createResponse2);
+            Console.WriteLine("    Press Any Key To  Update  The  OPC NODE");
+            Console.WriteLine("");
+            Console.WriteLine("    Updating....");
+            Console.ReadKey();
+            createResponse2.AddressLabel = "OPC_NODE_1.0.1";
+            OPCNodeClient.UpdateOPCNode(createResponse2);
 
-            //var updatedGetResponse2 = OPCNodeClient.GetOPCNode(new GetRequest() { Id = createResponse2.Id });
-            //if (updatedGetResponse2 is not null &&
-            //    updatedGetResponse2.KindCase == NullableOPCNodeDTO.KindOneofCase.OPCNode &&
-            //    updatedGetResponse2.OpcNode.AddressLabel == createResponse2.AddressLabel)
-            //{
-            //    Console.WriteLine("");
-            //    Console.WriteLine("");
-            //    Console.WriteLine("                                    ********    OPC NODE   ********    ");
-            //    Console.WriteLine("                                   ¡¡     SUCCESFULL     UPDATE       !!");
-            //    Console.WriteLine("");
-            //    Console.WriteLine("");
+            var updatedGetResponse2 = OPCNodeClient.GetOPCNode(new GetRequest() { Id = createResponse2.Id });
+            if (updatedGetResponse2 is not null &&
+                updatedGetResponse2.KindCase == NullableOPCNodeDTO.KindOneofCase.OpcNode &&
+                updatedGetResponse2.OpcNode.AddressLabel == createResponse2.AddressLabel)
+            {
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("                                    ********    OPC NODE   ********    ");
+                Console.WriteLine("                                   ¡¡     SUCCESFULL     UPDATE       !!");
+                Console.WriteLine("");
+                Console.WriteLine("");
 
-            //}
+            }
 
 
 
@@ -583,26 +573,26 @@ namespace ModuleHub.ConsoleApp
             #region      UPDATE      MODBUS  NODE
 
 
-            //Console.WriteLine("    Press Any Key To  Update  The  MODBUS NODE");
-            //Console.WriteLine("");
-            //Console.WriteLine("    Updating....");
-            //Console.ReadKey();
-            //createResponse3.RecordSource = 2;
-            //ModbusNodeClient.UpdateModbusNode(createResponse3);
+            Console.WriteLine("    Press Any Key To  Update  The  MODBUS NODE");
+            Console.WriteLine("");
+            Console.WriteLine("    Updating....");
+            Console.ReadKey();
+            createResponse3.RecordSource = 2;
+            ModbusNodeClient.UpdateModbusNode(createResponse3);
 
-            //var updatedGetResponse3 = ModbusNodeClient.GetModbusNode(new GetRequest() { Id = createResponse3.Id });
-            //if (updatedGetResponse3 is not null &&
-            //    updatedGetResponse3.KindCase == NullableModbusNodeDTO.KindOneofCase.ModbusNode &&
-            //    updatedGetResponse3.RecordSource == createResponse3.RecordSource)
-            //{
-            //    Console.WriteLine("");
-            //    Console.WriteLine("");
-            //    Console.WriteLine("                                    ********    MODBUS NODE   ********    ");
-            //    Console.WriteLine("                                   ¡¡     SUCCESFULL     UPDATE       !!");
-            //    Console.WriteLine("");
-            //    Console.WriteLine("");
+            var updatedGetResponse3 = ModbusNodeClient.GetModbusNode(new GetRequest() { Id = createResponse3.Id });
+            if (updatedGetResponse3 is not null &&
+                updatedGetResponse3.KindCase == NullableModbusNodeDTO.KindOneofCase.ModbusNode &&
+                updatedGetResponse3.ModbusNode.RecordSource == createResponse3.RecordSource)
+            {
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("                                    ********    MODBUS NODE   ********    ");
+                Console.WriteLine("                                   ¡¡     SUCCESFULL     UPDATE       !!");
+                Console.WriteLine("");
+                Console.WriteLine("");
 
-            //}
+            }
 
             #endregion
 
@@ -639,23 +629,23 @@ namespace ModuleHub.ConsoleApp
 
             #region           DELETE         COMMUNICATION CLIENT
 
-            //Console.WriteLine("");
-            //Console.WriteLine("    Press Any Key To  Delete  The  COMMUNICATION CLIENT");
-            //Console.WriteLine("");
-            //Console.WriteLine("    Eliminating....");
-            //Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("    Press Any Key To  Delete  The  COMMUNICATION CLIENT");
+            Console.WriteLine("");
+            Console.WriteLine("    Eliminating....");
+            Console.WriteLine("");
 
-            //CommunicationClientClient.DeleteCommunicationClient(new DeleteRequest() { Id = createResponse1.Id });
-            //var deletedGetResponse1 = CommunicationClientClient.GetCommunicationClient(new GetRequest() { Id = createResponse1.Id });
-            //if (deletedGetResponse1 is null ||
-            //    deletedGetResponse1.KindCase != NullableCommunicationClientDTO.KindOneofCase.CommunicationClient)
-            //{
-            //    Console.WriteLine("                               ********    COMMUNICATION CLIENT   ********    ");
-            //    Console.WriteLine("                                   ¡¡     SUCCESFULL     DELETE       !!");
-            //    Console.WriteLine("");
-            //    Console.WriteLine("");
+            CommunicationClientClient.DeleteCommunicationClient(new DeleteRequest() { Id = createResponse1.Id });
+            var deletedGetResponse1 = CommunicationClientClient.GetCommunicationClient(new GetRequest() { Id = createResponse1.Id });
+            if (deletedGetResponse1 is null ||
+                deletedGetResponse1.KindCase != NullableCommunicationClientDTO.KindOneofCase.CommunicationClient)
+            {
+                Console.WriteLine("                               ********    COMMUNICATION CLIENT   ********    ");
+                Console.WriteLine("                                   ¡¡     SUCCESFULL     DELETE       !!");
+                Console.WriteLine("");
+                Console.WriteLine("");
 
-            //}
+            }
 
 
 
@@ -663,23 +653,23 @@ namespace ModuleHub.ConsoleApp
 
             #region           DELETE         OPC  NODE
 
-            //Console.WriteLine("");
-            //Console.WriteLine("    Press Any Key To  Delete  The  OPC NODE");
-            //Console.WriteLine("");
-            //Console.WriteLine("    Eliminating....");
-            //Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("    Press Any Key To  Delete  The  OPC NODE");
+            Console.WriteLine("");
+            Console.WriteLine("    Eliminating....");
+            Console.WriteLine("");
 
-            //OPCNodeClient.DeleteOPCNode(new DeleteRequest() { Id = createResponse2.Id });
-            //var deletedGetResponse2 = OPCNodeClient.GetOPCNode(new GetRequest() { Id = createResponse2.Id });
-            //if (deletedGetResponse2 is null ||
-            //    deletedGetResponse2.KindCase != NullableOPCNodeDTO.KindOneofCase.OpcNode)
-            //{
-            //    Console.WriteLine("                                     ********    OPC  NODE   ********    ");
-            //    Console.WriteLine("                                   ¡¡     SUCCESFULL     DELETE       !!");
-            //    Console.WriteLine("");
-            //    Console.WriteLine("");
+            OPCNodeClient.DeleteOPCNode(new DeleteRequest() { Id = createResponse2.Id });
+            var deletedGetResponse2 = OPCNodeClient.GetOPCNode(new GetRequest() { Id = createResponse2.Id });
+            if (deletedGetResponse2 is null ||
+                deletedGetResponse2.KindCase != NullableOPCNodeDTO.KindOneofCase.OpcNode)
+            {
+                Console.WriteLine("                                     ********    OPC  NODE   ********    ");
+                Console.WriteLine("                                   ¡¡     SUCCESFULL     DELETE       !!");
+                Console.WriteLine("");
+                Console.WriteLine("");
 
-            //}
+            }
 
 
 
@@ -687,23 +677,23 @@ namespace ModuleHub.ConsoleApp
 
             #region  DELETE           MODBUS NODE
 
-            //Console.WriteLine("");
-            //Console.WriteLine("    Press Any Key To  Delete  The  MODBUS NODE");
-            //Console.WriteLine("");
-            //Console.WriteLine("    Eliminating....");
-            //Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("    Press Any Key To  Delete  The  MODBUS NODE");
+            Console.WriteLine("");
+            Console.WriteLine("    Eliminating....");
+            Console.WriteLine("");
 
-            //ModbusNodeClient.DeleteModbusNode(new DeleteRequest() { Id = createResponse3.Id });
-            //var deletedGetResponse3 = ModbusNodeClient.GetModbusNode(new GetRequest() { Id = createResponse3.Id });
-            //if (deletedGetResponse3 is null ||
-            //    deletedGetResponse3.KindCase != NullableModbusNodeDTO.KindOneofCase.ModbusNode)
-            //{
-            //    Console.WriteLine("                                     ********    MODBUS  NODE   ********    ");
-            //    Console.WriteLine("                                   ¡¡     SUCCESFULL     DELETE       !!");
-            //    Console.WriteLine("");
-            //    Console.WriteLine("");
+            ModbusNodeClient.DeleteModbusNode(new DeleteRequest() { Id = createResponse3.Id });
+            var deletedGetResponse3 = ModbusNodeClient.GetModbusNode(new GetRequest() { Id = createResponse3.Id });
+            if (deletedGetResponse3 is null ||
+                deletedGetResponse3.KindCase != NullableModbusNodeDTO.KindOneofCase.ModbusNode)
+            {
+                Console.WriteLine("                                     ********    MODBUS  NODE   ********    ");
+                Console.WriteLine("                                   ¡¡     SUCCESFULL     DELETE       !!");
+                Console.WriteLine("");
+                Console.WriteLine("");
 
-            //}
+            }
 
 
             #endregion

@@ -53,7 +53,7 @@ public class Program
 
         // Add services to the container.
         builder.Services.AddGrpc();
-        builder.Services.AddSingleton("Data Source=Data.sqlite");
+        builder.Services.AddSingleton("Data Source = ModuleHub_DB.sqlite");
         builder.Services.AddScoped<ApplicationContext>();
         builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
         builder.Services.AddScoped<IDataSourceRepository, DataSourceRepository>();

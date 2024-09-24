@@ -88,36 +88,24 @@ namespace ModuleHub.GrpcService.Services
         }
 
 
-
+        private readonly ICommunicationNodeRepository _communicationNodeRepository;
+        private readonly IUnitOfWork _unitOfWork;
         private readonly IMediator _mediator;
         private readonly IMapper _mapper;
 
-        public OPCNodeService(IMediator mediator, IMapper mapper)
+        public OPCNodeService(IMediator mediator, IMapper mapper , ICommunicationNodeRepository communicationNodeRepository, IUnitOfWork unitOfWork)
         {
             _mediator = mediator;
             _mapper = mapper;
-        }
-
-
-
-
-
-        private readonly ICommunicationNodeRepository _communicationNodeRepository;
-        private readonly IUnitOfWork _unitOfWork;
-        /// <summary>
-        /// Inyeccion de instancias de los Servicios
-        /// </summary>
-        /// <param name="communicationNodeRepository">Repositorio del <see cref="ICommunicationClientRepository"/></param>
-        /// <param name="unitOfWork">Unidad de Trabajo en Base de Datos</param>
-        public OPCNodeService(ICommunicationNodeRepository communicationNodeRepository, IUnitOfWork unitOfWork)
-        {
             _communicationNodeRepository = communicationNodeRepository;
             _unitOfWork = unitOfWork;
-
-
-
-
         }
+
+
+
+
+
+       
 
 
 
