@@ -537,6 +537,8 @@ namespace ModuleHub.ConsoleApp
 
                                                     Console.WriteLine($"    SuccesFull Obtaining [({getResponse0.Items.Count})] DATA SOURCES");
                                                     Console.WriteLine("");
+                                                    Console.WriteLine("       Presione una tecla para continuar.....");
+                                                    Console.ReadLine();
                                                 }
 
                                                 break;
@@ -585,6 +587,8 @@ namespace ModuleHub.ConsoleApp
                                                 Console.WriteLine("                                   ¡¡     SUCCESFULL     OBTAINING       !!");
                                                 Console.WriteLine("");
                                                 Console.WriteLine("");
+                                                Console.WriteLine("       Presione una tecla para continuar.....");
+                                                Console.ReadLine();
 
 
                                                 break;
