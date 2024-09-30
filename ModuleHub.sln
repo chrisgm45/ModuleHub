@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModuleHub.GrpcService", "Mo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModuleHub.Protos", "ModuleHub.Protos\ModuleHub.Protos.csproj", "{57530A86-BF12-47A5-9C5E-9576B7915D41}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModuleHub.Application", "ModuleHub.Application\ModuleHub.Application.csproj", "{9B2BD88C-7B32-4759-ABD0-FD074206A254}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModuleHub.Application", "ModuleHub.Application\ModuleHub.Application.csproj", "{9B2BD88C-7B32-4759-ABD0-FD074206A254}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
